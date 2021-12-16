@@ -1,5 +1,6 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+import { RectButton } from "react-native-gesture-handler";
 import { Feather } from "@expo/vector-icons";
 
 export const Container = styled.View`
@@ -26,7 +27,7 @@ export const Title = styled.Text`
 
 `;
 
-export const Category = styled.TouchableOpacity.attrs({ 
+export const Category = styled(RectButton).attrs({ 
   activeOpacity: 0.7,
 })<IProps>`
   width: 100%;

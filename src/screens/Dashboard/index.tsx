@@ -15,6 +15,7 @@ import {
   Transactions,
   Title,
   TransactionList,
+  LogoutButton
 } from './styles';
 
 interface Category {
@@ -72,7 +73,10 @@ export function Dashboard() {
               <UserName>Laecio</UserName>
             </User>
           </UserInfo>
-          <Icon name="power"/>
+          <LogoutButton onPress={() => {}}>
+              <Icon name="power"/>
+          </LogoutButton>
+         
         </UserWrapper>
       </Header>
       <HighlightCards >

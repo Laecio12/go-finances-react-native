@@ -110,8 +110,9 @@ export function Register() {
             />
             </Fields>
           <Button 
-            onPress={handleSubmit(handleRegister)} 
-            title='Enviar'/>
+            onPress={handleSubmit(handleRegister)}
+            title='Enviar'
+          />
         </Form>
         <Modal visible={categoryModalOpen}>
           <CategorySelect

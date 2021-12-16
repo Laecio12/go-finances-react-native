@@ -5,7 +5,7 @@ interface Category {
   name: string;
   icon: string;
 }
-interface ITransactionCardProps  {
+export interface ITransactionCardProps  {
   type: 'positive' | 'negative';
   title: string;
   amount: string;

@@ -1,12 +1,12 @@
 import styled, {css} from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { GestureHandlerRootView} from 'react-native-gesture-handler';
 interface IProps {
   type: 'up' | 'down';
   isActive: boolean;
 }
-export const Container = styled(TouchableOpacity)<IProps>`
+export const Container = styled(GestureHandlerRootView)<IProps>`
   width: 48%;
   flex-direction: row;
   align-items: center;
