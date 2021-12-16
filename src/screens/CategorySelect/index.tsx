@@ -19,8 +19,8 @@ interface Category {
   name: string;
 }
 interface Props {
-  category: string;
-  setCategory: (category: string) => void;
+  category: Category;
+  setCategory: (category: Category) => void;
   closeSelectCategory: () => void;
 }
 
@@ -38,7 +38,10 @@ export function CategorySelect({
         data={categories}
         keyExtractor={(item) => item.key}
         renderItem={({item}) => (
-          <Category>
+          <Category
+            onPress={() => setCategory(item)}
+            isActive={item.key === category.key}
+          >
             <Icon name={item.icon} />
             <Name>{item.name}</Name>
           </Category>
@@ -46,7 +49,11 @@ export function CategorySelect({
         ItemSeparatorComponent={() => <Separator />}
         />
         <Footer>
-          <Button title="Selecionar" />
+          <Button 
+          title="Selecionar"
+          onPress={closeSelectCategory}
+          
+          />
         </Footer>
     </Container>
   )

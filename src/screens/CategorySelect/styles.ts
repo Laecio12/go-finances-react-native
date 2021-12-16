@@ -7,6 +7,10 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
 
 `;
+
+interface IProps {
+  isActive: boolean;
+}
 export const Header = styled.View`
   width: 100%;
   height: ${RFValue(113)}px;
@@ -22,13 +26,20 @@ export const Title = styled.Text`
 
 `;
 
-export const Category = styled.View`
+export const Category = styled.TouchableOpacity.attrs({ 
+  activeOpacity: 0.7,
+})<IProps>`
   width: 100%;
   flex-direction: row;
   padding: ${RFValue(15)}px;
   align-items: center;
 
+  background-color: ${({isActive, theme }) => 
+    isActive ? theme.colors.secondary_light : theme.colors.background
+  };
+
 `;
+
 export const Icon = styled(Feather)`
   font-size: ${RFValue(20)}px;
   margin-right: ${RFValue(16)}px;
