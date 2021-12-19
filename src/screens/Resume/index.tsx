@@ -23,6 +23,7 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 import { useFocusEffect } from "@react-navigation/native";
 import { BorderlessButtonProps } from "react-native-gesture-handler";
+import { useAuth } from "../../hooks/auth";
 
 interface ITransactionDataProps  {
   type: 'positive' | 'negative';
@@ -52,6 +53,7 @@ export function Resume({onPress, ...rest}: ISelectButton) {
   const [totalByCategories, setTotalByCategories] = useState<ICategoryData[]>([]);
 
   const theme = useTheme();
+  const {user} = useAuth();
 
   function handleMonthChange(action: 'prev' | 'next') {
    if(action === 'next') {
@@ -62,7 +64,9 @@ export function Resume({onPress, ...rest}: ISelectButton) {
   }
 
   async function loadData() {
-    const data = await AsyncStorage.getItem('@gofinances:transactions');
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
+
+    const data = await AsyncStorage.getItem(dataKey);
     const transactions = data ? JSON.parse(data) : [];
 
     const expenses = transactions
